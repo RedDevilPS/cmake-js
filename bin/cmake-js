@@ -172,6 +172,11 @@ const yargs = require('yargs')
 			describe: 'Specify the output directory to compile to, default is projectRoot/build',
 			type: 'string',
 		},
+		preset: {
+			demand: false,
+			describe: 'use specified CMake preset from CMakePresets.json',
+			type: 'string',
+		},
 	})
 const argv = yargs.argv
 
@@ -229,6 +234,7 @@ const options = {
 	out: argv.O,
 	config: argv.B,
 	parallel: argv.p,
+	preset: argv.preset,
 	extraCMakeArgs: argv._.slice(1),
 }
 
